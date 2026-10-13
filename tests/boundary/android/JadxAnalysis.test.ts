@@ -246,7 +246,9 @@ it.each([
   async (fields, expected) => {
     const result = await traceWithReference(fields as Record<string, unknown>);
     expect(result).toMatchObject({
-      references: [{ direct_invokes: expected }],
+      references: [
+        { direct_invokes: expected, direct_invokes_exhaustive: null },
+      ],
     });
   },
 );
